@@ -28,6 +28,10 @@
             <button class='btn btn-primary btn-block' id='setvalue'>Update Form</button>
             <textarea id='output-textarea' rows="15" style="width: 100%; font-family: monospace;"
                       class='form-control'></textarea>
+            <div>
+              <p>Short Code</p>
+              <p id="output-product-shortcode"></p>
+            </div>
             <h2>Validation</h2>
             <label for="validate-textarea">This will update whenever the form changes to show validation errors if there
                 are any.</label><br>
@@ -129,6 +133,10 @@
     'title': 'Thing',
     'type': 'object',
     'properties': {
+      'id':{
+        'type':'string',
+        'default':'B000HJT0Q4'
+      },
       'name': {
         'type': 'string',
         'description': 'First and Last name',
@@ -309,6 +317,7 @@
   var jsonEditorForm = document.querySelector('#json-editor-form')
   var objectLayoutSelect = document.querySelector('#object-layout-select')
   var outputTextarea = document.querySelector('#output-textarea')
+  var outputProductShortcode =document.querySelector('#output-product-shortcode')
   var schemaTextarea = document.querySelector('#schema-textarea')
   var setSchema = document.querySelector('#setschema')
   var setValue = document.querySelector('#setvalue')
@@ -549,6 +558,9 @@
       var json = jsoneditor.getValue()
       outputTextarea.value = JSON.stringify(json, null, 2)
 
+      //output shortcode
+      outputProductShortcode.innerHTML = "[#data_summary_" + JSON.parse(outputTextarea.value).id + "_custom#]"
+
       // validate
       var validationErrors = jsoneditor.validate()
       if (validationErrors.length) {
@@ -573,6 +585,7 @@
 
   setValue.addEventListener('click', function () {
     jsoneditor.setValue(JSON.parse(outputTextarea.value))
+    console.log(JSON.parse(outputTextarea.value).name)
   })
 
   setSchema.addEventListener('click', function () {
