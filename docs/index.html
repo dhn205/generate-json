@@ -30,7 +30,8 @@
                       class='form-control'></textarea>
             <div>
               <p>Short Code</p>
-              <p id="output-product-shortcode"></p>
+              <p id="output-product-shortcode-list"></p>
+              <p id="output-product-shortcode-product"></p>
             </div>
             <h2>Validation</h2>
             <label for="validate-textarea">This will update whenever the form changes to show validation errors if there
@@ -317,7 +318,8 @@
   var jsonEditorForm = document.querySelector('#json-editor-form')
   var objectLayoutSelect = document.querySelector('#object-layout-select')
   var outputTextarea = document.querySelector('#output-textarea')
-  var outputProductShortcode =document.querySelector('#output-product-shortcode')
+  var outputProductShortcodeList =document.querySelector('#output-product-shortcode-list')
+  var outputProductShortcodeProduct =document.querySelector('#output-product-shortcode-product')
   var schemaTextarea = document.querySelector('#schema-textarea')
   var setSchema = document.querySelector('#setschema')
   var setValue = document.querySelector('#setvalue')
@@ -559,7 +561,8 @@
       outputTextarea.value = JSON.stringify(json, null, 2)
 
       //output shortcode
-      outputProductShortcode.innerHTML = "[#data_summary_" + JSON.parse(outputTextarea.value).id + "_custom#]"
+      outputProductShortcodeList.innerHTML = "[#data_summary_" + JSON.parse(outputTextarea.value).id + "_custom#]"
+      outputProductShortcodeProduct.innerHTML = "[#data_singleProduct_" + JSON.parse(outputTextarea.value).id + "_custom#]"
 
       // validate
       var validationErrors = jsoneditor.validate()
