@@ -154,7 +154,7 @@
         "type": "string",
         "default": "Our Top Rated"
       },
-      "amazon_btn": {
+      "cta_btn": {
         "type": "object",
         "properties": {
           "amazon_btn_text": {
@@ -602,7 +602,6 @@
       //output shortcode
       outputProductShortcodeList.innerHTML = "[#data_summary_" + JSON.parse(outputTextarea.value).id + "_custom#]"
       outputProductShortcodeProduct.innerHTML = "[#data_singleProduct_" + JSON.parse(outputTextarea.value).id + "_custom#]"
-
       // validate
       var validationErrors = jsoneditor.validate()
       if (validationErrors.length) {
