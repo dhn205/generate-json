@@ -154,19 +154,25 @@
         "type": "string",
         "default": "Our Top Rated"
       },
-      "cta_btn": {
-        "type": "object",
-        "properties": {
-          "amazon_btn_text": {
-            "type": "string",
-            "default": "BUY NOW"
-          },
-          "amazon_btn_link": {
-            "type": "string",
-            "default": "https://amzn.to/3SOwtbr12"
-          }
-        }
+      "cta": {
+      "type": "array",
+      "items": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string", 
+        "default":"Buy on Amazon"
+      },"url": {
+        "type": "string",
+        "default":"https://amzn.to/3VOt5i0"
       },
+      "aff_program": {
+        "type": "string", 
+        "default":"AMAZON"
+      }
+    }
+          }
+    },
       "custom_features": {
         "type": "array",
         "default": [
