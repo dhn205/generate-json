@@ -1806,3 +1806,33 @@ JSON Editor can be used with browsers that support ES5, but in order to use it w
 <script src="https://unpkg.com/core-js-bundle@latest/minified.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
 ```
+
+![testsvg](https://github.com/dhn205/generate-json/assets/112550579/d3a02b9d-ea38-4413-a449-f0703297337d)
+<svg id="mySvg" width="200" height="50" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vertical Line -->
+  <line x1="50" y1="10" x2="50" y2="40" stroke="black" stroke-width="2" />
+
+  <!-- Text -->
+  <text id="myText" x="60" y="30" font-family="Arial" font-size="12" fill="black">Your Text Here</text>
+
+  <!-- CDATA Section for JavaScript -->
+<script type="text/javascript"><![CDATA[
+// Function to get URL parameters
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// Get the 'text' parameter from the URL
+var newText = getParameterByName('text');
+
+// Update the text element with the new text
+document.getElementById('myText').textContent = newText;
+
+]]></script>
+</svg>
